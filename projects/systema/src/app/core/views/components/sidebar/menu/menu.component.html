@@ -1,0 +1,10 @@
+<mat-nav-list>
+    <mat-list-item *ngFor="let menuItem of menu">
+      <a [routerLink]="[menuItem.url]" routerLinkActive="router-link-active" mat-raised-button (click)="toggleMenu()">
+        <mat-icon class="mat-18" [svgIcon]="menuItem.icon"></mat-icon>
+        <span><i class="fa-solid fa-user-doctor"></i></span>
+        <span class="title">{{ menuItem.title }}</span>
+      </a>
+    </mat-list-item>
+</mat-nav-list>
+

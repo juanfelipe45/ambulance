@@ -1,0 +1,26 @@
+<mat-toolbar>
+  <button class="toggle_menu" mat-icon-button (click)="toggleMenu()">
+    <mat-icon >menu</mat-icon>
+    <span></span><span></span><span></span><span></span>
+  </button>
+
+  <button class="profile" mat-button [matMenuTriggerFor]="menuVertical">
+    <img src="assets/img/avatar/user.png" alt="" />
+    <div class="user_info">
+      <span class="user__username">{{ username }}</span>
+      <span class="user__country">País: {{ country.name }} <img [src]="country.flag" /></span>
+    </div>
+    <mat-icon>keyboard_arrow_down</mat-icon>
+  </button>
+
+  <mat-menu #menuVertical>
+    <button mat-menu-item>
+      <mat-icon>lock</mat-icon>
+      <span>Bloquear sesión</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Cerrar sesión</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

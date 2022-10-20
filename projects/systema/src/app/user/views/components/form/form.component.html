@@ -1,0 +1,41 @@
+<mat-toolbar fxLayout fxLayoutAlign="space-between center">
+    <h3>{{ title }} User</h3>
+    <button mat-icon-button mat-dialog-close color="warn">
+      <mat-icon>close</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-dialog-content>
+    <form fxLayout="column" [formGroup]="formGroup">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input type="text" matInput #name formControlName="nombre">
+        <mat-error *ngIf="formGroup.get('nombre')?.hasError('required')">El campo es requerido</mat-error>
+        <mat-error  *ngIf="formGroup.get('nombre')?.hasError('pattern')">El campo es solo texto</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Correo</mat-label>
+        <input type="email" matInput formControlName="correo">
+        <mat-error *ngIf="formGroup.get('correo')?.hasError('required')">El campo es requerido</mat-error>
+        <mat-error *ngIf="formGroup.get('correo')?.hasError('email')">Introduzca una dirección de correo electrónico válida</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input type="password" matInput formControlName="password">
+        <mat-error *ngIf="formGroup.get('password')?.hasError('required')">El campo es requerido</mat-error>
+        <mat-hint *ngIf="showHint">Dejar en blanco si no desea cambiar la contraseña</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Roles</mat-label>
+        <mat-select multiple formControlName="roles">
+          <mat-option *ngFor="let role of roles | async" [value]="role.id">{{ role.rol }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div fxLayout fxLayoutAlign="end" fxLayoutGap="15px">
+        <button type="button" mat-raised-button color="primary" [disabled]="formGroup.invalid" (click)="save()">Save</button>
+        <button type="button" mat-button mat-dialog-close=>Close</button>
+      </div>
+    </form>
+</mat-dialog-content>
+

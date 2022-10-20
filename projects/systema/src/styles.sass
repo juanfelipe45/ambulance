@@ -1,0 +1,94 @@
+/* You can add global styles to this file, and also import other style files */
+*
+  margin: 0
+  padding: 0
+
+  // Colors
+  --blue-ligth: #7c94fd
+
+html
+  font-size: 16px
+
+h2
+  font-size: 1.8rem !important
+  font-family: inter !important
+
+h1
+  font-size: 2.2rem !important
+
+
+.login_icon
+  width: auto !important
+  height: auto !important
+  margin-right: 10px
+
+.form_container
+  border: 1px solid var(--blue-ligth)
+  border-radius: 10px
+  height: 30vh
+  width: 30vw
+  min-width: 220px
+  flex-direction: column
+  display: flex
+  justify-content: center
+  align-items: center
+  min-height: 240px
+  padding: 0px 25px
+  position: relative
+  -webkit-box-shadow: 11px 11px 15px 5px #000000
+  box-shadow: 11px 11px 15px 5px #000000
+
+  .form_container__title
+    position: absolute
+    top: 20px
+    display: flex
+    align-items: center
+
+.input_container
+  width: inherit
+  margin: 10px 0px
+  border: 2px solid var(--blue-ligth)
+  display: flex
+  align-content: center
+  height: 3.8vh
+  min-height: 25px
+  align-items: center
+  padding-left: 5px
+  position: static
+  border-radius: 10px
+
+  .input__text
+    border: none
+    outline: none
+    height: 3vh
+    min-width: 20px
+    font-size: 3vh
+    margin-left: 5px
+    width: 100%
+    background-color: transparent
+
+.buttons_container
+  display: flex
+  justify-content: space-around
+  margin-top: 5px
+
+  .button
+    background-color: white
+    border: 3px solid var(--blue-ligth)
+    border-radius: 7px
+    width: 9vw
+    height: 4.2vh
+    min-width: 100px
+    min-height: 25px
+
+    &:hover
+      cursor: pointer
+
+    &:disabled, &[disabled]
+      border: 1px solid #999999
+      background-color: #cccccc
+      color: #666666
+      cursor: default
+
+.heightMaxPerfectScrollbar
+  height: 85%

@@ -1,0 +1,50 @@
+<mat-toolbar fxLayout fxLayoutAlign="space-between center">
+    <h3>{{title}}</h3>
+    <button mat-icon-button mat-dialog-close>
+      <mat-icon class="mat-18">close</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-dialog-content>
+  <form fxLayout="column" [formGroup]="group">
+    <div fxLayout fxLayoutGap="10px">
+      <div fxLayout="column" fxFlex="1 1 33&">
+        <amb-photo formControlName="foto" [photoByDefault]="photoToShow"></amb-photo>
+      </div>
+      <div fxLayout="column" fxFlex="1 1 33&">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input type="text" matInput formControlName="nombre">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Segundo Nombre</mat-label>
+          <input type="text" matInput formControlName="segundo_nombre">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Apellido</mat-label>
+          <input type="text" matInput formControlName="apellido">
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" fxFlex="1 1 33&">
+        <mat-form-field appearance="outline">
+          <mat-label>CMP</mat-label>
+          <input type="number" matInput formControlName="cmp">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>DNI</mat-label>
+          <input type="number" matInput formControlName="dni">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Correo</mat-label>
+          <input type="email" matInput formControlName="correo">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout fxLayoutAlign="end" fxLayoutGap="10px">
+      <button type="button" mat-raised-button color="primary" [disabled]="group.invalid" (click)="save()">Save</button>
+      <button type="button" mat-button color="primary" mat-dialog-close>Close</button>
+    </div>
+  </form>
+</mat-dialog-content>
+

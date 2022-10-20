@@ -1,0 +1,15 @@
+<div fxLayout fxLayoutGap="10px">
+  <button mat-flat-button color="primary" (click)="export('excel')">
+    <div fxLayout fxLayoutAlign="space-between center" fxLayoutGap="10px">
+      <span>Export to Excel</span>
+      <mat-icon svgIcon="excel"></mat-icon>
+    </div>
+  </button>
+
+  <button mat-flat-button color="warn" (click)="export('pdf')">
+    <div fxLayout fxLayoutAlign="space-between center" fxLayoutGap="10px">
+      <span>Export to PDF</span>
+      <mat-icon svgIcon="pdf"></mat-icon>
+    </div>
+  </button>
+</div>

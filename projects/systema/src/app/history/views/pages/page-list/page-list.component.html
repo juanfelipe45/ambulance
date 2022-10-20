@@ -1,0 +1,20 @@
+<amb-title>
+  <button mat-flat-button color="primary" btnAction>
+    <mat-icon class="mat-18">add</mat-icon>
+    Add histories
+  </button>
+</amb-title>
+<amb-container>
+  <perfect-scrollbar class="heightMaxPerfectScrollbar">
+    <amb-table
+    [dataSource]="dataSource"
+    [displayedColumns]="displayedColumns"
+    >
+    </amb-table>
+  </perfect-scrollbar>
+  <amb-paginator
+  [length]="quantityRecords"
+  (emitPaginator)="setPaginator($event)"
+  >
+  </amb-paginator>
+</amb-container>

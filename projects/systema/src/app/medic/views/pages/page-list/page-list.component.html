@@ -1,0 +1,41 @@
+<amb-title>
+  <!-- <span moduleIcon>favorite</span>
+  <span moduleTitle>Medics</span> -->
+
+  <button mat-flat-button color="primary" btnAction (click)="showModalWindow()" *rolesAllowed="'MEDIC'">
+    <mat-icon class="mat-18">add</mat-icon>
+    Add medics
+  </button>
+</amb-title>
+<amb-container class="principal__container">
+  <perfect-scrollbar class="heightMaxPerfectScrollbar">
+    <amb-table
+    [isSelectionMode]="true"
+    [dataSource]="dataSource"
+    [displayedColumns]="displayedColumns">
+      <ng-container matColumnDef="actions" class="content">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row" style="text-align: right;">
+          <button style="margin-right: 15px;" mat-stroked-button color="primary" (click)="showModalWindow(row)" *rolesAllowed="'MEDIC,ADMIN'">
+            <mat-icon class="mat-18">edit</mat-icon>
+          </button>
+          <button mat-stroked-button color="warn" (click)="delete(row)" *rolesAllowed="'AUDITOR'">
+            <mat-icon class="mat-18">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+    </amb-table>
+  </perfect-scrollbar>
+
+  <div fxLayout fxLayoutAlign="space-between center">
+    <amb-keypad
+    (onExport)="export($event)"
+    >
+    </amb-keypad>
+    <amb-paginator
+      [length]="quantityRecords"
+      (onChangePage)="changePage($event)"
+    >
+    </amb-paginator>
+  </div>
+</amb-container>
